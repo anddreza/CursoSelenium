@@ -91,7 +91,6 @@ public class DSL {
     // Radio e Check
     public void clicarRadio(String id){
         driver.findElement(By.id(id)).click();
-
     }
     public boolean isRadioMarcado(String id){
         return driver.findElement(By.id(id)).isSelected();
@@ -115,7 +114,7 @@ public class DSL {
     public void deselecionarCombo(String id, String valor){
         WebElement element = driver.findElement(By.id(id));
         Select combo = new Select (element);
-        combo.selectByVisibleText(valor);
+        combo.deselectByVisibleText(valor);
     }
     public String obterValorCombo(String id){
         WebElement element = driver.findElement(By.id(id));
@@ -126,7 +125,7 @@ public class DSL {
         WebElement element = driver.findElement(By.id("elementosForm:esportes"));
         Select combo = new Select(element);
         List<WebElement> allSelectOptions = combo.getAllSelectedOptions();
-        List<String> valores = new ArrayList<String>();
+        List<String> valores = new ArrayList <String>();
         for (WebElement opcao: allSelectOptions){
             valores.add(opcao.getText());
         }
@@ -192,7 +191,6 @@ public class DSL {
         String valor = alert.getText();
         alert.dismiss();
         return valor;
-        System.out.println("");
     }
 
     public void alertaEscrever(String valor){
@@ -217,6 +215,46 @@ public class DSL {
     public Object executarJS(String cmd, Object... param){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         return js.executeScript(cmd, param);
+    }
+
+    // Tabela
+    public void clicarBotaoTabela(String colunaBusca, String valor, String colunaBotao, String idTabela){
+        // Procurar coluna do registro
+        WebElement tabela = driver.findElement(By.xpath("//*[@id='elementosForm:tableUsuarios']"));
+        int idColuna = obterIndiceColuna(colunaBusca, tabela);
+
+        // Encontrar a linha do registro
+        int idLinha = obterIndiceLinha(valor, tabela, idColuna);
+        // Procurar coluna do botão
+        int idColunaBotao = obterIndiceColuna(colunaBotao, tabela);
+        // Clicar no botão da celula encontrada
+        WebElement celula = tabela.findElement(By.xpath(".//tr["+idLinha+"]/td["+idColunaBotao+"]"));
+        celula.findElement(By.xpath(".//input")).click();
+        //
+    }
+
+    protected int obterIndiceLinha(String valor, WebElement tabela, int idColuna) {
+        List<WebElement> linhas = tabela.findElements(By.xpath("./tbody/tr/td["+ idColuna +"]"));
+        int idLinha = -1; // se for qualquer valor de 0 para cima quer dizer que encontrei, se for valor negativo não encontrei
+        for (int i = 0; i < linhas.size(); i++){
+            if (linhas.get(i).getText().equals(valor)){
+                idColuna = i+1;
+                break;
+            }
+        }
+        return idLinha;
+    }
+
+    protected int obterIndiceColuna(String coluna, WebElement tabela) {
+        List <WebElement> colunas = tabela.findElements(By.xpath(".//th"));
+        int idColuna = -1; // se for qualquer valor de 0 para cima quer dizer que encontrei, se for valor negativo não encontrei
+        for (int i=0; i < colunas.size(); i++){
+            if (colunas.get(i).getText().equals(coluna)){
+                idColuna = i+1;
+                break;
+            }
+        }
+        return idColuna;
     }
 
 }
