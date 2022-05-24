@@ -70,26 +70,13 @@ public class TesteCadastro {
 //                break;
 //            }
 //        }
-        Assert.assertTrue(page.obterResultadoCadastro().startsWith("Cadastrado!"));
-
-        Assert.assertTrue(page.obterNomeCadastro().endsWith("Wagner"));
-
-       // Assert.assertTrue(dsl.obterTexto("descNome").endsWith("Wagner"));
-        Assert.assertEquals("Sobrenome: Costa", page.obterSobrenomeCadastro());
-        //Assert.assertEquals("Sobrenome: Costa", dsl.obterTexto("descSobrenome"));
-
-
-        Assert.assertEquals("Sexo: Masculino", page.obterSexoCadastro());
-//        Assert.assertEquals("Sexo: Masculino", dsl.obterTexto("descSexo"));
-
-        Assert.assertEquals("Comida: Pizza", page.obterComidaCadastro());
-        //Assert.assertEquals("Comida: Pizza", dsl.obterTexto("descComida"));
-
-        Assert.assertEquals("Escolaridade: mestrado", page.obterEscolaridadeCadastro());
-        //Assert.assertEquals("Escolaridade: mestrado", dsl.obterTexto("descEscolaridade"));
-
-        Assert.assertEquals("Esportes: Natacao", page.obterEsportesCadastro());
-                //Assert.assertEquals("Esportes: Natacao", dsl.obterTexto("descEsportes"));
+        Assert.assertEquals("Cadastrado!", page.obterResultadoCadastro());
+        Assert.assertEquals("Wagner", page.obterNomeCadastro());
+        Assert.assertEquals("Costa", page.obterSobrenomeCadastro());
+        Assert.assertEquals("Masculino", page.obterSexoCadastro());
+        Assert.assertEquals("Pizza", page.obterComidaCadastro());
+        Assert.assertEquals("mestrado", page.obterEscolaridadeCadastro());
+        Assert.assertEquals("Natacao", page.obterEsportesCadastro());
 
 
     }
