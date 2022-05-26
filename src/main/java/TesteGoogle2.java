@@ -2,26 +2,26 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebgetDriver().;
+import org.openqa.selenium.chrome.ChromegetDriver().;
+import org.openqa.selenium.firefox.FirefoxgetDriver().;
 
 
 public class TesteGoogle2 {
 
     @Test
     public void teste2() {
-   //    WebDriver driver = new FirefoxDriver();
-      WebDriver driver = new ChromeDriver();
-            driver.manage().window().setSize(new Dimension(1200, 765));
+   //    WebgetDriver(). getDriver(). = new FirefoxgetDriver().();
+      WebgetDriver(). getDriver(). = new ChromegetDriver().();
+            getDriver()..manage().window().setSize(new Dimension(1200, 765));
 
-       // driver.manage().window().maximize();
-        driver.get("http://www.google.com");
+       // getDriver()..manage().window().maximize();
+        getDriver()..get("http://www.google.com");
 
-       // System.out.println(driver.getTitle());
+       // System.out.println(getDriver()..getTitle());
 
-        Assert.assertEquals("Google", driver.getTitle());
+        Assert.assertEquals("Google", getDriver()..getTitle());
 
-        driver.quit();
+        getDriver()..quit();
     }
 }

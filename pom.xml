@@ -22,24 +22,24 @@
             <version>4.1.2</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-getgetDriver().(). -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
+            <artifactId>selenium-firefox-getgetDriver().().</artifactId>
             <version>4.1.2</version>
 
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-getgetDriver().(). -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
+            <artifactId>selenium-chrome-getgetDriver().().</artifactId>
             <version>4.1.2</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webgetgetDriver().().manager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
+            <artifactId>webgetgetDriver().().manager</artifactId>
             <version>5.0.2</version>
         </dependency>
         <dependency>

@@ -1,35 +1,34 @@
+import static br.ce.waquino.core.getgetDriver().().Factory.getgetgetDriver().().;
+import br.ce.waquino.core.DSL;
+import br.ce.waquino.core.getgetDriver().().Factory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebgetgetDriver().().;
+import org.openqa.selenium.chrome.ChromegetgetDriver().().;
+
 
 
 public class TesteCadastro {
 
-    public WebDriver driver; // transformei a variavel em uma variavel global
-    private DSL dsl;
+  //  public WebgetgetDriver().(). getgetDriver().().; // transformei a variavel em uma variavel global
+   // private DSL dsl;
     private CampoTreinamentoPage page;
 
     @Before // o Before diz que antes de cada teste deve inicializar aquele método que está abaixo dele.
     public void inicializa(){ // isso é um método
-            driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1200, 765));
-        driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-        dsl = new DSL(driver);
-        page = new CampoTreinamentoPage(driver);
+      //      getgetDriver().(). = new ChromegetgetDriver().().();
+        //getgetDriver().()..manage().window().setSize(new Dimension(1200, 765));
+        getgetgetDriver().().().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+        // dsl = new DSL(getgetDriver().().);
+        page = new CampoTreinamentoPage(getgetDriver().().);
     }
 
     @After // O After diz que depois de cada teste deve finalizar.
     public void finaliza(){
-        driver.quit();
+        killgetgetDriver().().();
     }
 
     @Test
@@ -53,12 +52,12 @@ public class TesteCadastro {
         page.cadastrar();
        // dsl.clicarBotao("elementosForm:cadastrar");
 
-//        WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
+//        WebElement element = getgetDriver().()..findElement(By.id("elementosForm:escolaridade"));
 //        Select combo = new Select(element);
 //        combo.selectByVisibleText("2o grau completo");
 //        Assert.assertEquals("2o grau completo", combo.getFirstSelectedOption().getText());
 //
-//        WebElement elements = driver.findElement(By.id("elementosForm:escolaridade"));
+//        WebElement elements = getgetDriver().()..findElement(By.id("elementosForm:escolaridade"));
 //        Select combos = new Select(element); // encontra o combo e transforma em uma instancia do select
 //        List<WebElement> options = combo.getOptions();
 //        Assert.assertEquals(8, options.size());
@@ -85,9 +84,9 @@ public class TesteCadastro {
     public void deveValidarNomeObrigatorio(){
         page.cadastrar();
       //  dsl.clicarBotao("elementosForm:cadastrar");
-//        Alert alert = driver.switchTo().alert();
+//        Alert alert = getgetDriver().()..switchTo().alert();
         Assert.assertEquals("Nome eh obrigatorio", dsl.alertaObterTextoEAceita());
-    //    driver.quit();
+    //    getgetDriver().()..quit();
 
     }
 
@@ -97,8 +96,8 @@ public class TesteCadastro {
     public void deveValidarSobrenomeObrigatorio(){
         page.setNome("Nome qualquer");
    //     dsl.escreve("elementosForm:nome", "Nome");
-  //      driver.findElement(By.id("elementosForm:cadastrar")).click();
-    //    Alert alert = driver.switchTo().alert();
+  //      getgetDriver().()..findElement(By.id("elementosForm:cadastrar")).click();
+    //    Alert alert = getgetDriver().()..switchTo().alert();
      //   Assert.assertEquals("Sobrenome eh obrigatorio?", alert.getText());
     page.cadastrar();
         //dsl.clicarBotao("elementosForm:cadastrar");
@@ -109,11 +108,11 @@ public class TesteCadastro {
     @Test
     public void deveValidarSexoObrigatorio(){
 
-//        driver.findElement(By.id("elementosForm:nome")).sendKeys("Nome");
-//        driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome");
-//        driver.findElement(By.id("elementosForm:cadastrar")).click();
+//        getgetDriver().()..findElement(By.id("elementosForm:nome")).sendKeys("Nome");
+//        getgetDriver().()..findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome");
+//        getgetDriver().()..findElement(By.id("elementosForm:cadastrar")).click();
 //
-//        Alert alert = driver.switchTo().alert();
+//        Alert alert = getgetDriver().()..switchTo().alert();
 //        Assert.assertEquals("Sexo eh obrigatorio?", alert.getText());
    page.setNome("Nome qualquer");
    page.setSobrenome("Sobrenome qualquer");
@@ -126,14 +125,14 @@ public class TesteCadastro {
     @Test
     public void deveValidarComidaVegetariano(){
 
-//        driver.findElement(By.id("elementosForm:nome")).sendKeys("Nome");
-//        driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome");
-//        driver.findElement(By.id("elementosForm:sexo:1")).click();
-//        driver.findElement(By.id("elementosForm:comidaFavorita:0")).click();
-//        driver.findElement(By.id("elementosForm:comidaFavorita:3")).click();
+//        getgetDriver().()..findElement(By.id("elementosForm:nome")).sendKeys("Nome");
+//        getgetDriver().()..findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome");
+//        getgetDriver().()..findElement(By.id("elementosForm:sexo:1")).click();
+//        getgetDriver().()..findElement(By.id("elementosForm:comidaFavorita:0")).click();
+//        getgetDriver().()..findElement(By.id("elementosForm:comidaFavorita:3")).click();
 //
-//        driver.findElement(By.id("elementosForm:cadastrar")).click();
-//        Alert alert = driver.switchTo().alert();
+//        getDriver()..findElement(By.id("elementosForm:cadastrar")).click();
+//        Alert alert = getDriver()..switchTo().alert();
 //        Assert.assertEquals("Tem certeza que voce eh vegetariano?", alert.getText());
 
 //        dsl.escreve("elementosForm:nome", "Nome qualquer");
@@ -158,16 +157,16 @@ public class TesteCadastro {
     public void deveValidarEsportistaIndeciso(){
 
 
-//        driver.findElement(By.id("elementosForm:nome")).sendKeys("Nome");
-//        driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome");
-//        driver.findElement(By.id("elementosForm:sexo:1")).click();
-//        driver.findElement(By.id("elementosForm:comidaFavorita:0")).click();
-//        Select combo = new Select(driver.findElement(By.id("elementosForm:esportes")));
+//        getDriver()..findElement(By.id("elementosForm:nome")).sendKeys("Nome");
+//        getDriver()..findElement(By.id("elementosForm:sobrenome")).sendKeys("Sobrenome");
+//        getDriver()..findElement(By.id("elementosForm:sexo:1")).click();
+//        getDriver()..findElement(By.id("elementosForm:comidaFavorita:0")).click();
+//        Select combo = new Select(getDriver()..findElement(By.id("elementosForm:esportes")));
 //        combo.selectByVisibleText("Karate");
 //        combo.selectByVisibleText("O que eh esporte?");
 //
-//        driver.findElement(By.id("elementosForm:cadastrar")).click();
-//        Alert alert = driver.switchTo().alert();
+//        getDriver()..findElement(By.id("elementosForm:cadastrar")).click();
+//        Alert alert = getDriver()..switchTo().alert();
 ////        Assert.assertEquals("Voce faz esporte ou nao?", alert.getText());
 //        dsl.escreve("elementosForm:nome", "Nome qualquer");
 //        dsl.escreve("elementosForm:sobrenome", "Sobrenome qualquer");

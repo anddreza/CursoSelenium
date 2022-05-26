@@ -1,4 +1,5 @@
 //import com.beust.jcommander.Parameter;
+import br.ce.waquino.core.DSL;
 import org.junit.runners.Parameterized;
 import org.junit.After;
 import org.junit.Assert;
@@ -6,8 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebgetDriver().;
+import org.openqa.selenium.chrome.ChromegetDriver().;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -16,7 +17,7 @@ import java.util.List;
 @RunWith(Parameterized.class)
 public class TesteRegrasCadastro {
 
-    public WebDriver driver; // transformei a variavel em uma variavel global
+    public WebgetDriver(). getDriver().; // transformei a variavel em uma variavel global
     private DSL dsl;
     private CampoTreinamentoPage page;
 
@@ -35,16 +36,16 @@ public class TesteRegrasCadastro {
 
     @Before // o Before diz que antes de cada teste deve inicializar aquele método que está abaixo dele.
     public void inicializa(){ // isso é um método
-        driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1200, 765));
-        driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-        dsl = new DSL(driver);
-        page = new CampoTreinamentoPage(driver);
+        getDriver(). = new ChromegetDriver().();
+        getDriver()..manage().window().setSize(new Dimension(1200, 765));
+        getDriver()..get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+        dsl = new DSL(getDriver().);
+        page = new CampoTreinamentoPage(getDriver().);
     }
 
     @After // O After diz que depois de cada teste deve finalizar.
     public void finaliza(){
-        driver.quit();
+        getDriver()..quit();
 
     }
 

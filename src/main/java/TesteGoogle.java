@@ -1,26 +1,26 @@
 import java.io.IOException;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebgetDriver().;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromegetDriver().;
 
 public class TesteGoogle {
     @Test
     public void teste() {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        System.setProperty("webgetDriver()..chrome.getDriver().", "/usr/bin/chromegetDriver().");
         ChromeOptions chromeOptions = new ChromeOptions();
         //chromeOptions.addArguments("--headless");
         //chromeOptions.addArguments("--no-sandbox");
 
-        WebDriver driver = new ChromeDriver(chromeOptions);
+        WebgetDriver(). getDriver(). = new ChromegetDriver().(chromeOptions);
 
-        driver.get("https://google.com");
+        getDriver()..get("https://google.com");
 
-//        if (driver.getPageSource().contains("Pesquisa")) {
+//        if (getDriver()..getPageSource().contains("Pesquisa")) {
 //            System.out.println("Pass");
 //        } else {
 //            System.out.println("Fail");
 //        }
-//        driver.quit();
+//        getDriver()..quit();
     }
 }
