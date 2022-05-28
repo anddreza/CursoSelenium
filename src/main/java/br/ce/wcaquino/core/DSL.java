@@ -1,84 +1,16 @@
-package br.ce.waquino.core;
+package br.ce.wcaquino.core;
+import static br.ce.wcaquino.core.DriverFactory.getDriver;
 
-import org.junit.Assert;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 public class DSL {
-
-  //  public WebgetDriver(). getDriver().;
-
-   // public DSL(WebgetDriver(). getDriver().) {
-     //   this.getDriver(). = getDriver().;
-   // }
-
-//    public void escreve(String id_campo, String texto){
-//        getDriver()..findElement(By.id(id_campo)).sendKeys(texto);
-//
-//    }
-//
-//    public String obterValorCampo(String id_campo){
-//        return getDriver()..findElement(By.id(id_campo)).getAttribute("value");
-//
-//    }
-//
-//    public void clicarRadio(String id ){
-//    getDriver()..findElement(By.id(id)).click();
-//        }
-//
-//    public boolean isRadioMarcado(String id){
-//        return getDriver()..findElement(By.id(id)).isSelected();
-//    }
-//
-//    public void selecionarCombo(String id, String valor){
-//        WebElement element = getDriver()..findElement(By.id(id));
-//        Select combo = new Select(element);
-//        combo.selectByVisibleText(valor);
-//    }
-//
-//    public String obterValorCombo(String id){
-//        WebElement element = getDriver()..findElement(By.id(id));
-//        Select combo = new Select(element);
-//        return combo.getFirstSelectedOption().getText();
-//    }
-//
-//    public void clicarBotao(String id){
-//        getDriver()..findElement(By.id("buttonSimple")).click();
-//    }
-//
-//    public void clicarClick(String link){
-//        getDriver()..findElement(By.linkText(link)).click();
-//    }
-//
-//
-//    public String obterTexto(By by){
-//        return getDriver()..findElement(by).getText();
-//
-//    }
-//
-//    public String obterTexto(String id){
-//        return obterTexto(By.id(id));
-//
-//    }
-//
-//
-//    public void clicarCheck(String s) {
-//        getDriver()..findElement(By.id("")).click();
-//    }
-//
-//    public int obterQuantidadeOpcoesCombo(String s) {
-//        getDriver()..findElement(By.id("combo")).click();
-//        return 0;
-//    }
-//
-//    public boolean verificarOpcaoCombo(String s, String mestrado) {
-//
-//    }
-    // TextField e textArea
     public void escreve(By by, String texto){
         getDriver().findElement(by).clear();
         getDriver().findElement(by).sendKeys(texto);

@@ -1,16 +1,11 @@
-import br.ce.waquino.core.DSL;
+import br.ce.wcaquino.core.DSL;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebgetDriver().;
 
 public class CampoTreinamentoPage {
-
     private DSL dsl;
-
     public CampoTreinamentoPage(){
         dsl = new DSL();
     }
-
-
     public void setNome(String nome){
         dsl.escreve("elementosForm:nome", nome);
     }
