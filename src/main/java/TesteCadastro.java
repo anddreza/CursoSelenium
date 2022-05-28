@@ -11,13 +11,13 @@ public class TesteCadastro {
     private CampoTreinamentoPage page;
 
     @Before // o Before diz que antes de cada teste deve inicializar aquele método que está abaixo dele.
-    public void inicializa(){ // isso é um método
+    public void inicializa() { // isso é um método
         getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
         page = new CampoTreinamentoPage();
     }
 
     @After // O After diz que depois de cada teste deve finalizar.
-    public void finaliza(){
+    public void finaliza() {
         killDriver();
     }
 
@@ -40,57 +40,58 @@ public class TesteCadastro {
 
 
     }
-
-    @Test
-    public void deveValidarNomeObrigatorio(){
-        page.cadastrar();
-        Assert.assertEquals("Nome eh obrigatorio", dsl.alertaObterTextoEAceita());
-
-
-    }
-
-
-
-    @Test
-    public void deveValidarSobrenomeObrigatorio(){
-        page.setNome("Nome qualquer");
-    page.cadastrar();
-
-    Assert.assertEquals("Sobrenome eh obrigatorio", dsl.alertaObterTextoEAceita());
-
-    }
-
-    @Test
-    public void deveValidarSexoObrigatorio(){
-   page.setNome("Nome qualquer");
-   page.setSobrenome("Sobrenome qualquer");
-   page.cadastrar();
-   Assert.assertEquals("Sexo eh obrigatorio", dsl.alertaObterTextoEAceita());
-    }
-
-    @Test
-    public void deveValidarComidaVegetariano(){
-
-        page.setNome("Nome qualquer");
-        page.setSobrenome("Sobrenome qualquer");
-        page.setSexoFeminino();
-        page.setComidaCarne();
-        page.setComidaVegetariano();
-        page.cadastrar();
-        Assert.assertEquals("Tem certeza que voce eh vegetariano?", dsl.alertaObterTextoEAceita());
-
-    }
-
-    @Test
-    public void deveValidarEsportistaIndeciso(){
-        page.setNome("Nome qualquer");
-        page.setSobrenome("Sobrenome qualquer");
-        page.setSexoFeminino();
-        page.setComidaCarne();
-        page.setEsportes("Karate", "O que eh esporte?");
-        page.cadastrar();
-
-        Assert.assertEquals("Voce faz esporte ou nao", dsl.alertaObterTextoEAceita());
-
-    }
 }
+//
+//    @Test
+//    public void deveValidarNomeObrigatorio(){
+//        page.cadastrar();
+//        Assert.assertEquals("Nome eh obrigatorio", dsl.alertaObterTextoEAceita());
+//
+//
+//    }
+//
+//
+//
+//    @Test
+//    public void deveValidarSobrenomeObrigatorio(){
+//        page.setNome("Nome qualquer");
+//    page.cadastrar();
+//
+//    Assert.assertEquals("Sobrenome eh obrigatorio", dsl.alertaObterTextoEAceita());
+//
+//    }
+//
+//    @Test
+//    public void deveValidarSexoObrigatorio(){
+//   page.setNome("Nome qualquer");
+//   page.setSobrenome("Sobrenome qualquer");
+//   page.cadastrar();
+//   Assert.assertEquals("Sexo eh obrigatorio", dsl.alertaObterTextoEAceita());
+//    }
+//
+//    @Test
+//    public void deveValidarComidaVegetariano(){
+//
+//        page.setNome("Nome qualquer");
+//        page.setSobrenome("Sobrenome qualquer");
+//        page.setSexoFeminino();
+//        page.setComidaCarne();
+//        page.setComidaVegetariano();
+//        page.cadastrar();
+//        Assert.assertEquals("Tem certeza que voce eh vegetariano?", dsl.alertaObterTextoEAceita());
+//
+//    }
+//
+//    @Test
+//    public void deveValidarEsportistaIndeciso(){
+//        page.setNome("Nome qualquer");
+//        page.setSobrenome("Sobrenome qualquer");
+//        page.setSexoFeminino();
+//        page.setComidaCarne();
+//        page.setEsportes("Karate", "O que eh esporte?");
+//        page.cadastrar();
+//
+//        Assert.assertEquals("Voce faz esporte ou nao", dsl.alertaObterTextoEAceita());
+//
+//    }
+//}

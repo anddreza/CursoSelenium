@@ -1,30 +1,29 @@
-import br.ce.waquino.core.DSL;
+import static br.ce.wcaquino.core.DriverFactory.getDriver;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebgetDriver().;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromegetDriver().;
+
+import br.ce.wcaquino.core.DSL;
+import br.ce.wcaquino.core.DriverFactory;
 
 public class TesteFrames {
 
-    private WebgetDriver(). getDriver().; // transformei a variavel em uma variavel global
+  //  private WebgetDriver(). getDriver().; // transformei a variavel em uma variavel global
     private DSL dsl;
 
     @Before // o Before diz que antes de cada teste deve inicializar aquele método que está abaixo dele.
     public void inicializa(){ // isso é um método
-        getDriver(). = new ChromegetDriver().();
-        getDriver()..manage().window().setSize(new Dimension(1200, 765));
-        getDriver()..get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-        dsl = new DSL(getDriver().);
+        getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+        dsl = new DSL();
     }
 
     @After // O After diz que depois de cada teste deve finalizar.
     public void finaliza(){
-//        getDriver()..quit();
+        DriverFactory.killDriver();
     }
 
     @Test
@@ -53,7 +52,7 @@ public class TesteFrames {
 
     @Test
     public void deveInteragirComFrameEscondido(){
-        WebElement frame = getDriver()..findElement(By.id("frame2"));
+        WebElement frame = getDriver().findElement(By.id("frame2"));
         dsl.executarJS("window.scrollBy(0, arguments[0])", frame.getLocation().y);
         dsl.entrarFrame("frame2");
 
@@ -76,7 +75,7 @@ public class TesteFrames {
         dsl.clicarBotao("buttonPopUpEasy");
         dsl.trocarJanela("Popup");
         dsl.escreve(By.tagName("textarea"), "teste1");
-        getDriver()..close();
+        getDriver().close();
         dsl.trocarJanela("");
         dsl.escreve(By.tagName("textarea"), "teste2");
 
@@ -95,12 +94,12 @@ public class TesteFrames {
 //        getDriver()..findElement(By.tagName("textarea"));
 
         dsl.clicarBotao("buttonPopUpHard");
-        System.out.println(getDriver()..getWindowHandles());
-        System.out.println(getDriver()..getWindowHandles());
-        dsl.trocarJanela((String) getDriver()..getWindowHandles().toArray()[1]);
+        System.out.println(getDriver().getWindowHandles());
+        System.out.println(getDriver().getWindowHandles());
+        dsl.trocarJanela((String) getDriver().getWindowHandles().toArray()[1]);
         dsl.escreve(By.tagName("textarea"), "Deu certo");
-        getDriver()..close();
-        dsl.trocarJanela((String) getDriver()..getWindowHandles().toArray()[0]);
+        getDriver().close();
+        dsl.trocarJanela((String) getDriver().getWindowHandles().toArray()[0]);
         dsl.escreve(By.tagName("textarea"), "e agora");
 
     }

@@ -16,7 +16,7 @@ import br.ce.wcaquino.core.DriverFactory;
 
 public class TesteCampoTreinamento {
     private DSL dsl;
-    @Before // o Before diz que antes de cada teste deve inicializar aquele método que está abaixo dele.
+    @Before
     public void inicializa(){ // isso é um método
         getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
         dsl = new DSL();
@@ -37,8 +37,6 @@ public class TesteCampoTreinamento {
     @Test
     public void deveInteragirComTextArea() {
         dsl.escreve("elementosForm:sugestoes", "teste");
-        //getDriver()..findElement(By.id("elementosForm:nome")).sendKeys("Teste de escrita");
-        // getDriver()..findElement(By.id("elementosForm:sugestoes")).sendKeys("teste");
         Assert.assertEquals("teste", dsl.obterValorCampo("elementosForm:sugestoes"));
 
     }
@@ -58,32 +56,12 @@ public class TesteCampoTreinamento {
 
     @Test
     public void deveInteragirComCombo() {
-      //  WebElement element = getDriver()..findElement(By.id("elementosForm:escolaridade"));
-       // Select combo = new Select(element);
-       // combo.selectByIndex(3);
-        //combo.selectByValue("superior");
-       // combo.selectByVisibleText("2o grau completo");
         dsl.selecionarCombo("elementosForm:escolaridade", "2o grau completo");
         Assert.assertEquals("2o grau completo", dsl.obterValorCombo("elementosForm:escolaridade"));
 
     }
         @Test
         public void deveVerificarValoresCombo() {
-
-           // WebElement element = getDriver()..findElement(By.id("elementosForm:escolaridade"));
-           // Select combo = new Select(element); // encontra o combo e transforma em uma instancia do select
-           // List<WebElement> options = combo.getOptions();
-           // Assert.assertEquals(8, options.size());
-
-//            boolean encontrou = false;
-//            for (WebElement option: options){
-//                if (option.getText().equals("Mestrado")) {
-//                    encontrou = true;
-//                    break;
-//                }
-//            }
-//        Assert.assertTrue(encontrou);
-
             Assert.assertEquals(8, dsl.obterQuantidadeOpcoesCombo("elementosForm:escolaridade"));
             Assert.assertTrue(dsl.verificarOpcaoCombo("elementosForm:escolaridade", "Mestrado"));
 
@@ -113,8 +91,6 @@ public class TesteCampoTreinamento {
     @Test
     public void deveInteragirComLinks() {
         dsl.clicarLink("Voltar");
-       // getDriver()..findElement(By.linkText("Voltar")).click();
-
         Assert.assertEquals("Voltou!", dsl.obterTexto("resultado"));
 
     }
@@ -122,13 +98,7 @@ public class TesteCampoTreinamento {
     @Test
     //@Ignore
     public void deveBuscarTextosNaPagina() {
-
-//        System.out.println(getDriver()..findElement(By.tagName("body")).getText());
-     //   Assert.assertTrue(getDriver()..findElement(By.tagName("body"))
-       //         .getText().contains("Campo de Treinamento"));
         Assert.assertEquals("Campo de Treinamento", dsl.obterTexto(By.tagName("h3")));
-//                getDriver()..findElement(By.tagName("h3")).getText());
-
         Assert.assertEquals("Cuidado onde clica, muitas armadilhas...",
                 dsl.obterTexto(By.className("facilAchar")));
     }
